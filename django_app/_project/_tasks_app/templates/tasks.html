@@ -11,9 +11,9 @@
     </header>
     <main>
         <ul>
-            <li>Task 1</li>
-            <li>Task 2</li>
-            <li>Task 3</li>
+            {% for Task in Tasks %}
+                <li>{{ Taks.title }}</li>
+            {% endfor %}
         </ul>
     </main>
     <footer>
