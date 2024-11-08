@@ -11,10 +11,11 @@
     <button onclick="location.href='add_task/'">Add Task</button>
     <ul>
         {% for task in latest_tasks_list %}
-            <li>
+            <li id="task-{{ task.id }}">
                 <input type="checkbox" {% if task.completed %}checked{% endif %} 
                         onchange="updateTaskStatus({{ task.id }}, this)">
                 <a href="{% url '_tasks_app:task' task.id %}">{{ task.title }}</a>
+                <button onclick="deleteTask({{ task.id }})" class="bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-2 rounded">Delete</button>
             </li>
         {% endfor %}
     </ul>

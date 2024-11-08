@@ -32,3 +32,21 @@ function updateTaskStatus(taskId, checkbox) {
         }
     });
 }
+
+function deleteTask(taskId) {
+    const csrfToken = getCookie('csrftoken');
+    fetch(`/tasks/delete/${taskId}/`, {
+        method: 'DELETE',
+        headers: {
+            'X-CSRFToken': csrfToken
+        }
+    }).then(response => response.json())
+      .then(data => {
+          if (data.status === 'success') {
+              const taskElement = document.getElementById(`task-${taskId}`);
+              taskElement.remove();
+          } else {
+              alert('Failed to delete task.');
+          }
+      });
+}

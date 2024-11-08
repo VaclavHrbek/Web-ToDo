@@ -7,7 +7,7 @@ import json
 from .models import Task
 
 def index(request):
-    latest_tasks_list = Task.objects.order_by('-created_at')[:5]
+    latest_tasks_list = Task.objects.order_by('-created_at')[:]
     context = {"latest_tasks_list": latest_tasks_list}
     return render(request, '_tasks_app/index.html', context)
 
@@ -38,5 +38,12 @@ def update_status(request, task_id):
         data = json.loads(request.body)
         task.completed = data["completed"]
         task.save()
+        return JsonResponse({'status': 'success'})
+    return JsonResponse({'status': 'fail'}, status=400)
+
+def delete_task(request, task_id):
+    if request.method == "DELETE":
+        task = get_object_or_404(Task, pk=task_id)
+        task.delete()
         return JsonResponse({'status': 'success'})
     return JsonResponse({'status': 'fail'}, status=400)
