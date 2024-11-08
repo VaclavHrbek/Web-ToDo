@@ -4,6 +4,6 @@ from . import views
 app_name = "_tasks_app"
 urlpatterns = [
     path("", views.index, name='index'),
-    path("tasks/", views.tasks, name='tasks'),
-    path("tasks/<int:task_id>/", views.task, name='task')
+    path("<int:task_id>/", views.task_detail, name='task'),
+    path("add_task/", views.add_task, name='add_task'),
 ]

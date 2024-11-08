@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tasks</title>
+</head>
+<body>
+    <h1>Tasks</h1>
+    <button onclick="location.href='add_task/'">Add Task</button>
+    <ul>
+        {% for task in latest_tasks_list %}
+            <li>{{ task.title }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
