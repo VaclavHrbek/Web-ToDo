@@ -7,6 +7,10 @@ WORKDIR /app
 # Copy the requirements file to the container
 COPY requirements.txt .
 
+RUN apt-get update && apt-get install -y \
+    nodejs
+    npm
+
 # Install the project dependencies
 RUN pip install -r requirements.txt
 
