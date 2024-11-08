@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from django.http import HttpResponse, JsonResponse
 from .forms import TaskForm
 
@@ -26,7 +26,7 @@ def add_task(request):
         form = TaskForm(request.POST)
         if form.is_valid():
             form.save()
-            return render(request, '_tasks_app/tasks.html')
+            return redirect('_tasks_app:index')
     else:
         form = TaskForm()
     return render(request, "_tasks_app/add_task.html", { "form": form })
