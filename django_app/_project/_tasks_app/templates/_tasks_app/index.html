@@ -5,6 +5,8 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Tasks</title>
+        <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+
     </head>
 <body>
     <h1>Tasks</h1>
@@ -16,6 +18,8 @@
                         onchange="updateTaskStatus({{ task.id }}, this)">
                 <a href="{% url '_tasks_app:task' task.id %}">{{ task.title }}</a>
                 <button onclick="deleteTask({{ task.id }})" class="bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-2 rounded">Delete</button>
+                <button onclick="location.href='update/{{ task.id }}'" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded">Update</button>
+            </li>
             </li>
         {% endfor %}
     </ul>

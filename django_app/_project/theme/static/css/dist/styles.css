@@ -831,6 +831,10 @@ select {
   background-color: rgb(239 68 68 / var(--tw-bg-opacity));
 }
 
+.p-4 {
+  padding: 1rem;
+}
+
 .px-4 {
   padding-left: 1rem;
   padding-right: 1rem;
