@@ -17,6 +17,7 @@ def task_detail(request, task_id):
         "title": task.title,
         "description": task.description,
         "completed": task.completed,
+        "due_date": task.due_date, 
         "created_at": task.created_at
     }
     return render(request, "_tasks_app/task_detail.html", context)
