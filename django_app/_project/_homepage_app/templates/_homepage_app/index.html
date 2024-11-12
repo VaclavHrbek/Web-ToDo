@@ -12,7 +12,10 @@
 <body>
     <div id="app">
         <h1 class="text-4xl font-bold mb-4">Welcome Vaclav!</h1>
-        <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" onclick="window.location.href='/tasks/'">To Do List</button>
+        <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" 
+        @mouseover="button = 'Hovered!'"
+        title="Click me to see the To Do List"
+        onclick="window.location.href='/tasks/'">To Do List</button>
         <p>[[ message ]]</p> 
         <p>[[ button ]]</p> 
     </div>
