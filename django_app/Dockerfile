@@ -17,8 +17,8 @@ RUN pip install -r requirements.txt
 # Copy the project files to the container
 COPY . /app
 
-# Expose the port that the Django app will run on
-EXPOSE 8000
+# Expose the port that the Django and Vue app will run on
+EXPOSE 8000 5173
 
 # Start the Django development server
 # CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
